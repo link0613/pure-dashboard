@@ -1,0 +1,168 @@
+<html>
+    <head>
+        <link rel="stylesheet" type="text/css" href="styles.css">
+        <link rel="stylesheet" type="text/css" href="material.css">
+        <script type="text/javascript" src="https://cdn.jsdelivr.net/jquery/latest/jquery.min.js"></script>
+        <script type="text/javascript" src="https://cdn.jsdelivr.net/momentjs/latest/moment.min.js"></script>
+        <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.min.js"></script>
+        <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        <!-- Compiled and minified CSS -->
+    </head>
+    <body>
+        <div class="header">
+            <div class="header-item">1</div>
+            <div class="header-item">2</div>
+            <div class="header-item">3</div>
+            <div class="header-item">4</div>
+        </div>
+        <div class="body">
+            <div class="date-picker">
+                <i class="fa fa-calendar"></i>
+                <div id="reportrange" class="date-text">
+                    <span></span>
+                </div>
+            </div>
+            <div class="first-block">
+                <div class="card">
+                    <p class="title">התפלגות<br/>תקבולים</p>
+                    <div class="card-body"></div>
+                </div>
+                <div class="card">
+                    <p class="title">הכנסות</p>
+                    <div class="card-body"></div>
+                </div>
+                <div class="card">
+                    <p class="title">התפלגות<br/>מכירות</p>
+                    <div class="card-body"></div>
+                </div>
+            </div>
+            <div class="second-block">
+                <div class="card-group">
+                    <div class="card">
+                        <p class="title">עסקים כמוך</p>
+                    <div class="card-body"></div>
+                    </div>
+                    <div class="card">
+                        <p class="title">עסקים לידך</p>
+                        <div class="card-body"></div>
+                    </div>
+                </div>
+                <div class="card">
+                    <p class="title">הנחות</p>
+                    <div class="card-body"></div>
+                </div>
+                <div class="card">
+                    <p class="title">התפלגות לקוחות - גיל</p>
+                    <div class="card-body">
+                        <div class="content"></div>
+                        <div class="button-group">
+                            <button class="btn-blue-reverse btn-small">מגורים</button>
+                            <button class="btn-green-reverse btn-small">גיל</button>
+                            <button class="btn-green-reverse btn-small">מגדר</button>
+                            <p>בחירת התפלגות</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="third-block">
+                <div class="content">
+                    <div class="first-content">
+                        <p>הכנסות</p>
+                        <p><span>620K</span>מצטבר מתחילת החודש:</p>
+                        <p><span>620K</span>מצטבר מתחילת השנה:</p>
+                    </div>
+                    <div class="second-content">
+                        <p>55 תווים לטקסט חופשי לורם איפסום</p>
+                        <p>דולור סיט אמט, קונסקט</p>
+                    </div>
+                    <button class="btn-green-reverse btn-normal">להקדמת תשלומים</button>
+                </div>
+                <button class="btn-green btn-large">המלצות</button>
+            </div>
+            <div class="third-block">
+                <div class="content">
+                    <button class="btn-green btn-special">החודש פרסמת X מבצעים </button>
+                    <button class="btn-green-reverse btn-normal">יצירת מבצעקנה קבל</button>
+                    <button class="btn-green-reverse btn-normal">יצירת מבצע 1+1</button>
+                    <button class="btn-green-reverse btn-normal">יצירת הנחה</button>
+                </div>
+                <button class="btn-blue btn-large">מבצעים</button>
+            </div>
+        </div>
+        <div id="open-modal" class="modal-window">
+            <div class="modal">
+                <div class="modal-header">
+                    <a title="Close" class="modal-close">X</a>
+                    <p class="modal-title">מבצעים</p>
+                </div>
+                <div class="modal-menu">
+                    <p class="menu-item">יצירת מבצע קנה קבל</p>
+                    <p class="menu-item">יצירת מבצע 1+1</p>
+                    <p class="menu-item active">יצירת מבצע הנחות</p>
+                </div>
+                <div class="modal-body">
+                    <div class="body-left">
+                        <div class="group">
+                            <input class="text-field" type="text" required>
+                            <label>שם המוצר</label>
+                        </div>
+                        <div class="group">
+                            <input class="text-field" type="text" required>
+                            <label>שם % הנחה</label>
+                        </div>
+                        <div class="group">
+                            <input class="text-field" type="text" required>
+                            <label>כמות מינ’</label>
+                        </div>  
+                        <div class="group">
+                            <input class="text-field" type="text" required>
+                            <label>כמות מקס’</label>
+                        </div>
+                    </div>
+                    <div class="body-right">
+                        <div class="mdl-selectfield">
+                            <label>Standard Select</label>
+                            <select class="browser-default">
+                                <option value="" disabled selected>Choose your option</option>
+                                <option value="1">Option 1</option>
+                                <option value="2">Option 2</option>
+                                <option value="3">Option 3</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </body>
+    <script>
+        $(function() {
+            var start = moment().subtract(29, 'days');
+            var end = moment();
+
+            function cb(start, end) {
+                $('#reportrange span').html(start.format('MM. D. YY') + ' - ' + end.format('MM. D. YY'));
+            }
+            $('#reportrange').daterangepicker({
+                startDate: start,
+                endDate: end,
+                ranges: {
+                'Today': [moment(), moment()],
+                'Yesterday': [moment().subtract(1, 'days'), moment().subtract(1, 'days')],
+                'Last 7 Days': [moment().subtract(6, 'days'), moment()],
+                'Last 30 Days': [moment().subtract(29, 'days'), moment()],
+                'This Month': [moment().startOf('month'), moment().endOf('month')],
+                'Last Month': [moment().subtract(1, 'month').startOf('month'), moment().subtract(1, 'month').endOf('month')]
+                }
+            }, cb);
+            cb(start, end);
+        });
+        $( "button" ).click(function() {
+            $("#open-modal").addClass("open");
+        });
+        $(".modal-close").click(function() {
+            $("#open-modal").removeClass("open");
+        })
+    </script>
+</html>
