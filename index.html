@@ -1,12 +1,14 @@
 <html>
     <head>
         <link rel="stylesheet" type="text/css" href="styles.css">
-        <link rel="stylesheet" type="text/css" href="material.css">
         <script type="text/javascript" src="https://cdn.jsdelivr.net/jquery/latest/jquery.min.js"></script>
         <script type="text/javascript" src="https://cdn.jsdelivr.net/momentjs/latest/moment.min.js"></script>
         <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.min.js"></script>
         <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.css" />
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/datepicker/0.6.5/datepicker.min.js"></script>
+        <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/datepicker/0.6.5/datepicker.min.css" />
+        
         <!-- Compiled and minified CSS -->
     </head>
     <body>
@@ -101,64 +103,87 @@
                     <p class="menu-item">יצירת מבצע 1+1</p>
                     <p class="menu-item active">יצירת מבצע הנחות</p>
                 </div>
-                <div class="modal-body">
-                    <div class="body-left">
-                        <div class="group">
-                            <div class="group-title">
-                                הגדרת מבצע
-                                <div class="group-title-number">
-                                    2
+                <div class="modal-scroll">
+                    <div class="modal-body">
+                        <div class="body-left">
+                            <div class="group">
+                                <div class="group-title">
+                                    הגדרת מבצע
+                                    <div class="group-title-number">
+                                        2
+                                    </div>
                                 </div>
                             </div>
-                        </div>
-                        <div class="group">
-                            <input class="text-field" type="text" required>
-                            <label>שם המוצר</label>
-                        </div>
-                        <div class="group">
-                            <input class="text-field" type="text" required>
-                            <label>שם % הנחה</label>
-                        </div>
-                        <div class="group">
-                            <input class="text-field" type="text" required>
-                            <label>כמות מינ’</label>
-                        </div>  
-                        <div class="group">
-                            <input class="text-field" type="text" required>
-                            <label>כמות מקס’</label>
-                        </div>
-                    </div>
-                    <div class="body-right">
-                        <div class="group">
-                            <div class="group-title">
-                                הגדרת מבצע
-                                <div class="group-title-number">
-                                    1
+                            <div class="group">
+                                <div class="sub-group">
+                                    <i class="fa fa-calendar"></i>
+                                    <input id="date_picker2" class="date-picker"><label class="label-datepicker">2שם ה</label>
+                                </div>
+                                <div class="sub-group"> 
+                                    <i class="fa fa-calendar"></i>
+                                    <input id="date_picker1" class="date-picker"><label class="label-datepicker"> 1שםצר</label>
                                 </div>
                             </div>
-                        </div>
-                        <div class="group">
-                            <div class="custom-select" style="width:200px;">
-                                <select>
-                                    <option value="0">36-54</option>
-                                    <option value="1">54-100</option>
-                                    <option value="2">100-300</option>
-                                </select>
+                            <div class="group">
+                                <input class="text-field" type="text" required>
+                                <label>שם המוצר</label>
                             </div>
-                            <label> מקסכמות’</label>
+                            <div class="group">
+                                <input class="text-field" type="text" required>
+                                <label>שם % הנחה</label>
+                            </div>
+                            <div class="group">
+                                <input class="text-field" type="text" required>
+                                <label>כמות מינ’</label>
+                            </div>  
+                            <div class="group">
+                                <input class="text-field" type="text" required>
+                                <label>כמות מקס’</label>
+                            </div>
+                            <div class="group align-left">
+                                <button class="btn-modal">מגדר</button>
+                            </div>
                         </div>
-                        <div class="group">
-                            <label class="container">
-                                <input type="checkbox" checked="checked">
-                                <span class="checkmark"></span > 
-                                <span class="checkbox-label">הגדרת</span>
-                            </label>
-                            <label class="container">
-                                <input type="checkbox" checked="checked">
-                                <span class="checkmark"></span> 
-                                <span class="checkbox-label">הגדרת</span>
-                            </label>
-                            <label> מקסכמות’</label>
+                        <div class="body-right">
+                            <div class="group">
+                                <div class="group-title">
+                                    הגדרת מבצע
+                                    <div class="group-title-number">
+                                        1
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="group">
+                                <div class="custom-select" style="width:200px;">
+                                    <select>
+                                        <option value="0">36-54</option>
+                                        <option value="1">54-100</option>
+                                        <option value="2">100-300</option>
+                                    </select>
+                                </div>
+                                <label> מקסכמות’</label>
+                            </div>
+                            <div class="group">
+                                <label class="container">
+                                    <input type="checkbox" checked="checked">
+                                    <span class="checkmark"></span > 
+                                    <span class="checkbox-label">הגדרת</span>
+                                </label>
+                                <label class="container">
+                                    <input type="checkbox" checked="checked">
+                                    <span class="checkmark"></span> 
+                                    <span class="checkbox-label">הגדרת</span>
+                                </label>
+                                <label> מקסכמות’</label>
+                            </div>
+                            <div class="group">
+                                <label class="container">
+                                    <input type="checkbox" checked="checked">
+                                    <span class="checkmark"></span > 
+                                    <span class="checkbox-label">הגדרת</span>
+                                </label>
+                                <label> מקסכמות’</label>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -187,6 +212,10 @@
                 }
             }, cb);
             cb(start, end);
+
+            $('#date_picker1').datepicker({format:'MM. D. YY'});
+            $('#date_picker2').datepicker({format:'MM. D. YY'});
+            
         });
         $( "button" ).click(function() {
             $("#open-modal").addClass("open");
@@ -194,6 +223,8 @@
         $(".modal-close").click(function() {
             $("#open-modal").removeClass("open");
         })
+
+ 
 
         /* for select */
 
